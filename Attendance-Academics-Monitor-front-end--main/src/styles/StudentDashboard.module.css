@@ -1,0 +1,1233 @@
+/* GLOBAL STYLES */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+.studentDashboard {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 25%;
+  background: #1e293b;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #334155;
+  position: relative;
+  overflow: hidden;
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+  background: #2d3748;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profileSection:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.profileAvatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-right: 1rem;
+  box-shadow: 0 3px 8px rgba(59, 130, 246, 0.3);
+}
+
+.profileInfo h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  color: #bfdbfe;
+}
+
+.profileInfo p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.navigationTabs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  gap: 0.6rem;
+}
+
+.tabBtn {
+  background: #2d3748;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  padding: 0.9rem 1.1rem;
+  text-align: left;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.tabBtn:hover {
+  background: #374151;
+  border-color: #3b82f6;
+  color: #f8fafc;
+}
+
+.tabBtn.active {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-color: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.tabIcon {
+  margin-right: 0.7rem;
+  font-size: 1.1rem;
+}
+
+/* Notifications Styles */
+.notificationsSection {
+  flex-grow: 1;
+}
+
+.notificationsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #334155;
+}
+
+.notificationsHeader h3 {
+  font-size: 1.1rem;
+  color: #bfdbfe;
+}
+
+.badge {
+  background: #ef4444;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.notificationItem {
+  background: #2d3748;
+  border-radius: 10px;
+  padding: 0.9rem;
+  margin-bottom: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+}
+
+.notificationItem:hover {
+  background: #374151;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.unread {
+  border-left: 4px solid #3b82f6;
+}
+
+.notificationContent {
+  display: flex;
+  align-items: flex-start;
+  flex-grow: 1;
+  gap: 0.7rem;
+}
+
+.notificationIcon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.absent { color: #ef4444; }
+.low-attendance { color: #f59e0b; }
+.exam { color: #10b981; }
+.fail { color: #dc2626; }
+
+.notificationMessage {
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+  line-height: 1.4;
+  color: #cbd5e1;
+}
+
+.notificationDate {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.notificationActions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.markReadBtn,
+.deleteBtn {
+  background: #4b5563;
+  border: none;
+  color: #f8fafc;
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.markReadBtn:hover {
+  background: #22c55e;
+}
+
+.deleteBtn:hover {
+  background: #ef4444;
+}
+
+.noNotifications,
+.noExams {
+  text-align: center;
+  padding: 1.5rem;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* Content Styles */
+.content {
+  width: 75%;
+  padding: 2rem;
+  background: #1e293b;
+  overflow-y: auto;
+}
+
+.contentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+}
+
+.contentHeader h2 {
+  font-size: 1.8rem;
+  color: #bfdbfe;
+  font-weight: 600;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.semesterFilter,
+.timeFilter {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+label {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.filterSelect {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #2d3748;
+  color: #f8fafc;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Attendance Overview */
+.attendanceOverview {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.overallAttendance {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #2d3748;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 18rem;
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+}
+
+.overallAttendance:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.attendanceCircle {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+}
+
+.circleProgress {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: conic-gradient(#10b981 0deg, #2d3748 0deg);
+  border: 2px solid #334155;
+}
+
+.circleProgress::before {
+  content: '';
+  position: absolute;
+  width: 4.5rem;
+  height: 4.5rem;
+  background: #2d3748;
+  border-radius: 50%;
+}
+
+.percentage {
+  position: relative;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #10b981;
+}
+
+.attendanceInfo h4 {
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: #f8fafc;
+}
+
+.attendanceInfo p {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.todayAttendance {
+  background: #2d3748;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-grow: 1;
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+}
+
+.todayAttendance:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.todayAttendance h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #f8fafc;
+}
+
+.periodsContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.periodDot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dot {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  transform: scale(1.1);
+}
+
+.present {
+  background: #10b981;
+}
+
+.absent {
+  background: #ef4444;
+}
+
+.holiday {
+  background: #6b7280;
+}
+
+.periodDot span {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Subject Performance */
+.subjectPerformance {
+  background: #2d3748;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+}
+
+.subjectPerformance:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.subjectPerformance h3 {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  color: #f8fafc;
+  text-align: center;
+}
+
+.subjectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1.2rem;
+}
+
+.subjectCard {
+  text-align: center;
+  padding: 0.9rem;
+  background: #374151;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid #4b5563;
+}
+
+.subjectCard:hover {
+  background: #4b5563;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.circularProgress {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.progressCircle {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 2px solid #334155;
+}
+
+.progressCircle::before {
+  content: '';
+  position: absolute;
+  width: 3.8rem;
+  height: 3.8rem;
+  background: #374151;
+  border-radius: 50%;
+}
+
+.subjectCard h4 {
+  font-size: 0.95rem;
+  color: #f8fafc;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Attendance Chart */
+.attendanceChart {
+  background: #2d3748;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+  position: relative;
+  overflow: hidden;
+}
+
+.attendanceChart:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+}
+
+.chartHeader h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #bfdbfe;
+  font-weight: 600;
+}
+
+.chartControls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.weekNav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navBtn {
+  background: #4b5563;
+  border: none;
+  color: #f8fafc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: #3b82f6;
+}
+
+.navBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.weekNav span {
+  font-size: 0.9rem;
+  color: #f8fafc;
+  font-weight: 500;
+}
+
+.timeFilter {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.chartContainer {
+  position: relative;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+canvas {
+  background: #1e293b;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 100% !important;
+  height: auto !important;
+}
+
+.tooltip {
+  position: absolute;
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border: 1px solid #3b82f6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+  opacity: 0;
+  animation: tooltipFade 0.3s ease-in-out forwards;
+}
+
+@keyframes tooltipFade {
+  from { opacity: 0; transform: translate(-50%, -80%); }
+  to { opacity: 1; transform: translate(-50%, -100%); }
+}
+
+/* Schedule Calendar */
+.scheduleCalendar {
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #2d3748 0%, #1e293b 100%);
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+ 
+}
+
+
+
+.scheduleCalendar h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #bfdbfe;
+  text-align: center;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  padding: 0 0.8rem;
+}
+
+.currentPeriod {
+  font-weight: 600;
+  color: #f8fafc;
+  font-size: 1.1rem;
+}
+
+.navBtn {
+  background: linear-gradient(135deg, #4b5563, #374151);
+  border: none;
+  color: #f8fafc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.navBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  transform: scale(1.05);
+}
+
+.navBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.navIcon {
+  font-size: 1rem;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  background: #334155;
+  border-radius: 12px;
+  padding: 2px;
+}
+
+.dayHeader {
+  background: #374151; /* Subtle gray shade for contrast, matches dashboard theme */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500; /* Lighter font weight for a less bold look */
+  color: #f8fafc; /* Consistent text color */
+  border-radius: 6px; /* Subtle radius for a sleek appearance */
+  font-size: 0.8rem; /* Reduced font size for a less "thick" look */
+  padding: 0.4rem; /* Reduced padding for compactness */
+  height: 1.8rem; /* Smaller height to avoid "thick" appearance */
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid #3b82f6;
+
+}
+
+.dayCell {
+  background: #2d3748;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 2rem;
+  font-size: 0.8rem;
+  color: #f8fafc;
+}
+
+.emptyCell {
+  background: transparent;
+  height: 2rem;
+}
+
+.today {
+  border: 1px solid #3b82f6;
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.dayNumber {
+  font-weight: 500;
+}
+
+/* Profile Popup (Used for both Profile and Day Attendance) */
+.profilePopupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.profilePopup {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: min(90%, 24rem);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  color: #f8fafc;
+  border: 1px solid #334155;
+}
+
+.profilePopup h3 {
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #bfdbfe;
+}
+
+.profileInfo p {
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.profileInfo p strong {
+  color: #3b82f6;
+}
+
+.profileActions {
+  display: flex;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+}
+
+.changePasswordBtn,
+.logoutBtn,
+.closeBtn {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  color: #ffffff;
+  font-weight: 500;
+}
+.closeBtn{
+  margin-top: 10px;
+
+}
+.changePasswordBtn {
+  background: #3b82f6;
+}
+
+.logoutBtn {
+  background: #ef4444;
+}
+
+.closeBtn {
+  background: #ef4444;
+}
+
+.changePasswordBtn:hover,
+.logoutBtn:hover,
+.closeBtn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Marks Table */
+.marksTable {
+  background: #2d3748;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+}
+
+.marksTable:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.marksTable h3 {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  color: #f8fafc;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #374151;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #4b5563;
+}
+
+th,
+td {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  border: 1px solid #4b5563;
+  color: #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+th {
+  background: #3b82f6;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+tr:hover {
+  background: #6b7280;
+}
+
+.pass {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.fail {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.status {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-align: center;
+  border: none;
+}
+
+.status.pass {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.status.fail {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.status.upcoming {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.status.finished {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+/* Exam Schedule */
+.examSchedule {
+  background: #2d3748;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: 1px solid #334155;
+}
+
+.examSchedule:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.examSection {
+  margin-bottom: 1.5rem;
+}
+
+.examSection h3 {
+  font-size: 1.1rem;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.todoBtn {
+  background: #4b5563;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #f8fafc;
+}
+
+.todoBtn:hover {
+  background: #3b82f6;
+}
+
+.todoIcon {
+  font-size: 1.2rem;
+}
+
+/* To-Do Popup */
+.todoPopup {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: min(90%, 24rem);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  color: #f8fafc;
+  border: 1px solid #334155;
+}
+
+.todoPopup h3 {
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #bfdbfe;
+}
+
+.todoInput {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #374151;
+  color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.addBtn {
+  padding: 0.7rem 1.5rem;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addBtn:hover {
+  background: #2563eb;
+}
+
+.todoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.todoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem;
+  background: #374151;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid #4b5563;
+}
+
+.todoItem:hover {
+  background: #4b5563;
+}
+
+.completed .todoText {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.todoText {
+  flex-grow: 1;
+  cursor: pointer;
+  color: #f8fafc;
+}
+
+.editInput {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: #2d3748;
+  color: #f8fafc;
+}
+
+.todoActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editBtn,
+.deleteBtn,
+.saveBtn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #ffffff;
+}
+
+.editBtn {
+  background: #8b5cf6;
+}
+
+.editBtn:hover {
+  background: #7c3aed;
+}
+
+.deleteBtn {
+  background: #706f6f;
+}
+
+.deleteBtn:hover {
+  background: #dc2626;
+}
+
+.saveBtn {
+  background: #10b981;
+}
+
+.saveBtn:hover {
+  background: #059669;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .sidebar,
+  .content {
+    width: 100%;
+  }
+  
+  .attendanceOverview {
+    flex-direction: column;
+  }
+  
+  .overallAttendance {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+  
+  .contentHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+  
+  .subjectsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .calendarGrid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+  }
+  
+  .dayHeader {
+    font-size: 0.75rem;
+    padding: 0.4rem;
+    height: 1.8rem;
+  }
+  
+  .dayCell {
+    font-size: 0.7rem;
+    height: 1.8rem;
+    padding: 0.4rem;
+  }
+  
+  .emptyCell {
+    height: 1.8rem;
+  }
+  
+  table {
+    font-size: 0.85rem;
+  }
+  
+  th, td {
+    padding: 0.7rem;
+  }
+}
+
+/* Change Password Form */
+.changePasswordForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+  padding: 1rem;
+  background: #2d3748;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.changePasswordForm input {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background: #374151;
+  color: #f8fafc;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.changePasswordForm input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.changePasswordForm input::placeholder {
+  color: #94a3b8;
+}
+
+.changePasswordForm button {
+  padding: 0.7rem 1.2rem;
+  background: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.changePasswordForm button:hover {
+  background: #2563eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.changePasswordForm .error {
+  color: #ef4444;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.changePasswordForm .success {
+  color: #10b981;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* Responsive Design for Change Password Form */
+@media (max-width: 768px) {
+  .changePasswordForm {
+    padding: 0.8rem;
+  }
+
+  .changePasswordForm input {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .changePasswordForm button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .changePasswordForm .error,
+  .changePasswordForm .success {
+    font-size: 0.8rem;
+  }
+}
