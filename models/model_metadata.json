@@ -1,0 +1,259 @@
+{
+  "model_name": "Random Forest",
+  "trained_at_utc": "2026-11-22T19:01:40+00:00",
+  "dataset": "Students' Academic Performance Dataset (xAPI-Edu-Data), Kaggle aljarah/xAPI-Edu-Data",
+  "rows_used": 478,
+  "train_rows": 382,
+  "test_rows": 96,
+  "target": "Class",
+  "class_labels": [
+    "L",
+    "M",
+    "H"
+  ],
+  "class_names": {
+    "L": "Low",
+    "M": "Middle",
+    "H": "High"
+  },
+  "probability_class_order": [
+    "H",
+    "L",
+    "M"
+  ],
+  "feature_names": [
+    "raisedhands",
+    "VisITedResources",
+    "AnnouncementsView",
+    "Discussion",
+    "gender",
+    "NationalITy",
+    "PlaceofBirth",
+    "StageID",
+    "GradeID",
+    "SectionID",
+    "Topic",
+    "Semester",
+    "Relation",
+    "ParentAnsweringSurvey",
+    "ParentschoolSatisfaction",
+    "StudentAbsenceDays"
+  ],
+  "numeric_features": [
+    "raisedhands",
+    "VisITedResources",
+    "AnnouncementsView",
+    "Discussion"
+  ],
+  "categorical_features": [
+    "gender",
+    "NationalITy",
+    "PlaceofBirth",
+    "StageID",
+    "GradeID",
+    "SectionID",
+    "Topic",
+    "Semester",
+    "Relation",
+    "ParentAnsweringSurvey",
+    "ParentschoolSatisfaction",
+    "StudentAbsenceDays"
+  ],
+  "categorical_values_seen": {
+    "gender": [
+      "F",
+      "M"
+    ],
+    "NationalITy": [
+      "Egypt",
+      "Iran",
+      "Iraq",
+      "Jordan",
+      "KW",
+      "Lybia",
+      "Morocco",
+      "Palestine",
+      "SaudiArabia",
+      "Syria",
+      "Tunis",
+      "USA",
+      "lebanon",
+      "venzuela"
+    ],
+    "PlaceofBirth": [
+      "Egypt",
+      "Iran",
+      "Iraq",
+      "Jordan",
+      "KuwaIT",
+      "Lybia",
+      "Morocco",
+      "Palestine",
+      "SaudiArabia",
+      "Syria",
+      "Tunis",
+      "USA",
+      "lebanon",
+      "venzuela"
+    ],
+    "StageID": [
+      "HighSchool",
+      "MiddleSchool",
+      "lowerlevel"
+    ],
+    "GradeID": [
+      "G-02",
+      "G-04",
+      "G-05",
+      "G-06",
+      "G-07",
+      "G-08",
+      "G-09",
+      "G-10",
+      "G-11",
+      "G-12"
+    ],
+    "SectionID": [
+      "A",
+      "B",
+      "C"
+    ],
+    "Topic": [
+      "Arabic",
+      "Biology",
+      "Chemistry",
+      "English",
+      "French",
+      "Geology",
+      "History",
+      "IT",
+      "Math",
+      "Quran",
+      "Science",
+      "Spanish"
+    ],
+    "Semester": [
+      "F",
+      "S"
+    ],
+    "Relation": [
+      "Father",
+      "Mum"
+    ],
+    "ParentAnsweringSurvey": [
+      "No",
+      "Yes"
+    ],
+    "ParentschoolSatisfaction": [
+      "Bad",
+      "Good"
+    ],
+    "StudentAbsenceDays": [
+      "Above-7",
+      "Under-7"
+    ]
+  },
+  "numeric_valid_range": [
+    0,
+    100
+  ],
+  "preprocessing": "ColumnTransformer: OneHotEncoder(handle_unknown=ignore) on categoricals; numerics passed through unscaled (tree model) - fitted on training data only",
+  "best_params": {
+    "clf__class_weight": "None",
+    "clf__max_depth": "None",
+    "clf__min_samples_leaf": 2,
+    "clf__n_estimators": 200
+  },
+  "selection_rule": "0.5*CV macro-F1 + 0.5*CV Low-class recall (train set only)",
+  "cv_macro_f1": 0.8009109441009318,
+  "cv_low_recall": 0.82,
+  "test_metrics": {
+    "accuracy": 0.78125,
+    "per_class": {
+      "L": {
+        "precision": 0.84,
+        "recall": 0.84,
+        "f1": 0.84,
+        "support": 25
+      },
+      "M": {
+        "precision": 0.7333333333333333,
+        "recall": 0.7857142857142857,
+        "f1": 0.7586206896551724,
+        "support": 42
+      },
+      "H": {
+        "precision": 0.8076923076923077,
+        "recall": 0.7241379310344828,
+        "f1": 0.7636363636363637,
+        "support": 29
+      }
+    },
+    "macro_precision": 0.7936752136752135,
+    "macro_recall": 0.7832840722495895,
+    "macro_f1": 0.7874190177638454,
+    "weighted_precision": 0.7835737179487179,
+    "weighted_recall": 0.78125,
+    "weighted_f1": 0.7813283699059562,
+    "low_recall": 0.84,
+    "confusion_matrix": [
+      [
+        21,
+        4,
+        0
+      ],
+      [
+        4,
+        33,
+        5
+      ],
+      [
+        0,
+        8,
+        21
+      ]
+    ],
+    "roc_auc_ovr_macro": 0.9150808391391537,
+    "roc_auc_ovr_weighted": 0.904679093772141
+  },
+  "top_features_permutation": [
+    {
+      "feature": "StudentAbsenceDays",
+      "importance_mean": 0.2121
+    },
+    {
+      "feature": "VisITedResources",
+      "importance_mean": 0.0507
+    },
+    {
+      "feature": "raisedhands",
+      "importance_mean": 0.0421
+    },
+    {
+      "feature": "ParentAnsweringSurvey",
+      "importance_mean": 0.0295
+    },
+    {
+      "feature": "gender",
+      "importance_mean": 0.0216
+    },
+    {
+      "feature": "Topic",
+      "importance_mean": 0.0206
+    },
+    {
+      "feature": "Relation",
+      "importance_mean": 0.0155
+    },
+    {
+      "feature": "StageID",
+      "importance_mean": 0.0092
+    }
+  ],
+  "library_versions": {
+    "python": "3.13.18",
+    "scikit-learn": "1.9.1"
+  },
+  "random_state": 42,
+  "note": "Reconstructed Kaggle-based component. Not part of the original SIH 2025 submission."
+}
