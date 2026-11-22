@@ -1,0 +1,22 @@
+# Secrets
+.env
+.env.*
+!.env.example
+kaggle.json
+access_token
+*.pem
+
+# Dataset: raw CSV is NOT redistributed - see README "Dataset download"
+dataset/raw/
+dataset/processed/
+
+# Python / Node
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+node_modules/
+build/
+.DS_Store
